@@ -6,7 +6,7 @@
 /*   By: ljerinec <ljerinec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 11:25:47 by ljerinec          #+#    #+#             */
-/*   Updated: 2023/06/28 14:15:50 by ljerinec         ###   ########.fr       */
+/*   Updated: 2023/07/03 15:17:07 by ljerinec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,4 +57,16 @@ void	change_state(t_phinfo *phinfo, char new_state)
 		phinfo->philo[u]->state = new_state;
 		pthread_mutex_unlock(phinfo->philo[u]->check_state);
 	}
+}
+
+void	go_eat(t_philo *philo)
+{
+	pthread_mutex_lock(philo->check_state);
+	if (philo->state != 'D')
+	{
+		pthread_mutex_unlock(philo->check_state);
+		philo_eat(philo);
+	}
+	else
+		pthread_mutex_unlock(philo->check_state);
 }

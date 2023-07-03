@@ -6,7 +6,7 @@
 /*   By: ljerinec <ljerinec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 12:10:32 by ljerinec          #+#    #+#             */
-/*   Updated: 2023/07/03 13:30:07 by ljerinec         ###   ########.fr       */
+/*   Updated: 2023/07/03 14:06:03 by ljerinec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,8 +73,7 @@ void	take_fork(t_philo *philo)
 	}
 	else
 	{
-		if (philo->nb_meal == 0)
-			ft_msleep(5);
+		wait_if_first_meal(philo);
 		pthread_mutex_lock(philo->fork_left);
 		philo_msg(philo, TEXT_FORK);
 		if (philo->nb_philo > 1)
@@ -85,14 +84,14 @@ void	take_fork(t_philo *philo)
 	}
 }
 
-void	go_eat(t_philo *philo)
+void	wait_if_first_meal(t_philo *philo)
 {
-	pthread_mutex_lock(philo->check_state);
-	if (philo->state != 'D')
+	pthread_mutex_lock(philo->mutex_meal);
+	if (philo->nb_meal == 0)
 	{
-		pthread_mutex_unlock(philo->check_state);
-		philo_eat(philo);
+		pthread_mutex_unlock(philo->mutex_meal);
+		ft_msleep(5);
 	}
 	else
-		pthread_mutex_unlock(philo->check_state);
+		pthread_mutex_unlock(philo->mutex_meal);
 }
