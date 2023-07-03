@@ -6,7 +6,7 @@
 /*   By: ljerinec <ljerinec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 18:16:35 by ljerinec          #+#    #+#             */
-/*   Updated: 2023/05/31 11:19:18 by ljerinec         ###   ########.fr       */
+/*   Updated: 2023/07/03 13:22:02 by ljerinec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,13 +30,23 @@ void	checking_argv(int argc, char **argv)
 
 	i = 1;
 	if (argc < 5 || argc > 6)
-		exit(0);
+	{
+		printf("Error ! Not enough parameters !\n");
+		printf("You should try like this :\n");
+		printf("./philo 4 410 200 200 5\n");
+		printf("	----	\n");
+		printf("./philo 5 810 200 200\n");
+		exit(1);
+	}
 	while (i < argc)
 	{
 		if (is_number(argv[i]) == 1)
 			i++;
 		else
+		{
+			printf("Only numbers allowed for the parameters !\n");
 			exit(1);
+		}
 	}
 }
 

@@ -6,7 +6,7 @@
 /*   By: ljerinec <ljerinec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 18:06:28 by ljerinec          #+#    #+#             */
-/*   Updated: 2023/07/03 12:21:02 by ljerinec         ###   ########.fr       */
+/*   Updated: 2023/07/03 12:35:32 by ljerinec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,5 +71,7 @@ void	free_mutex_philo(t_phinfo *phinfo)
 		free(phinfo->philo[i]);
 	}
 	pthread_mutex_destroy(phinfo->lock_msg);
+	free(phinfo->lock_msg);
 	free(phinfo->philo);
+	free(phinfo);
 }

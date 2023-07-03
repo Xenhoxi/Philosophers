@@ -6,7 +6,7 @@
 /*   By: ljerinec <ljerinec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 12:10:32 by ljerinec          #+#    #+#             */
-/*   Updated: 2023/07/03 12:13:42 by ljerinec         ###   ########.fr       */
+/*   Updated: 2023/07/03 13:30:07 by ljerinec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,8 @@ void	take_fork(t_philo *philo)
 	}
 	else
 	{
+		if (philo->nb_meal == 0)
+			ft_msleep(5);
 		pthread_mutex_lock(philo->fork_left);
 		philo_msg(philo, TEXT_FORK);
 		if (philo->nb_philo > 1)

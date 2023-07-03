@@ -6,7 +6,7 @@
 /*   By: ljerinec <ljerinec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 13:42:14 by ljerinec          #+#    #+#             */
-/*   Updated: 2023/06/26 00:30:19 by ljerinec         ###   ########.fr       */
+/*   Updated: 2023/07/03 12:33:09 by ljerinec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,7 @@ t_philo	*create_philo(int i, t_phinfo *phinfo)
 	philo->state = 'W';
 	philo->nb_meal = 0;
 	philo->nb_philo = phinfo->nb_philo;
+	philo->last_meal = 0;
 	philo->index = i;
 	return (philo);
 }
