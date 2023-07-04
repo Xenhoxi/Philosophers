@@ -6,7 +6,7 @@
 /*   By: ljerinec <ljerinec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 11:16:56 by ljerinec          #+#    #+#             */
-/*   Updated: 2023/07/03 12:13:14 by ljerinec         ###   ########.fr       */
+/*   Updated: 2023/07/04 11:02:30 by ljerinec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,8 @@ void	*philo_life(void *param)
 	philo = (t_philo *)param;
 	while (1)
 	{
+		if (philo->nb_philo == 1)
+			return (only_one(philo));
 		go_eat(philo);
 		if (philo->nb_philo > 1)
 		{

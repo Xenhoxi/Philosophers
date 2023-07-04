@@ -6,7 +6,7 @@
 /*   By: ljerinec <ljerinec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 18:07:48 by ljerinec          #+#    #+#             */
-/*   Updated: 2023/07/03 12:14:06 by ljerinec         ###   ########.fr       */
+/*   Updated: 2023/07/04 11:01:27 by ljerinec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,11 +94,14 @@ long long	ft_atoll(const char *str);
 int			is_number(char *str);
 int			ft_strlen(char *str);
 
+// action.c
 void		free_mutex_philo(t_phinfo *phinfo);
 void		take_fork(t_philo *philo);
 void		add_meal(t_philo *philo);
 void		eat(t_philo *philo);
 void		sleep_and_think(t_philo *philo);
+void		wait_if_first_meal(t_philo *philo);
 void		go_eat(t_philo *philo);
+void		*only_one(t_philo *philo);
 
 #endif

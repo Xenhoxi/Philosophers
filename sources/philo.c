@@ -6,7 +6,7 @@
 /*   By: ljerinec <ljerinec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 18:06:28 by ljerinec          #+#    #+#             */
-/*   Updated: 2023/07/03 12:35:32 by ljerinec         ###   ########.fr       */
+/*   Updated: 2023/07/04 11:06:33 by ljerinec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ int	main(int argc, char **argv)
 	checking_argv(argc, argv);
 	phinfo = setup(argc, argv);
 	setup_each_philo(phinfo);
-	printf("Start of the simulation !\n");
 	run(phinfo);
 	return (0);
 }
@@ -73,5 +72,6 @@ void	free_mutex_philo(t_phinfo *phinfo)
 	pthread_mutex_destroy(phinfo->lock_msg);
 	free(phinfo->lock_msg);
 	free(phinfo->philo);
+	free(phinfo->time_info);
 	free(phinfo);
 }

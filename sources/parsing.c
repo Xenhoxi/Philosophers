@@ -6,7 +6,7 @@
 /*   By: ljerinec <ljerinec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 13:42:14 by ljerinec          #+#    #+#             */
-/*   Updated: 2023/07/03 12:33:09 by ljerinec         ###   ########.fr       */
+/*   Updated: 2023/07/04 11:07:38 by ljerinec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,10 @@ t_phinfo	*setup(int argc, char **argv)
 	phinfo->time_info->t_die = ft_atoi(argv[2]);
 	phinfo->time_info->t_eat = ft_atoi(argv[3]);
 	phinfo->time_info->t_sleep = ft_atoi(argv[4]);
+	if (phinfo->nb_philo > 0)
+		printf("Start of the simulation !\n");
+	else
+		printf("Not enough philosophers !\n");
 	if (argc == 6)
 		phinfo->time_info->nb_meal = ft_atoi(argv[5]);
 	else
@@ -103,4 +107,12 @@ int	ft_atoi(char *str)
 		i++;
 	}
 	return (resultat * negatif);
+}
+
+void	*only_one(t_philo *philo)
+{
+	pthread_mutex_lock(philo->fork_left);
+	philo_msg(philo, TEXT_FORK);
+	ft_msleep(philo->time_info->t_die + 2);
+	return (NULL);
 }

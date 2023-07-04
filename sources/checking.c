@@ -6,7 +6,7 @@
 /*   By: ljerinec <ljerinec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 18:16:35 by ljerinec          #+#    #+#             */
-/*   Updated: 2023/07/03 13:22:02 by ljerinec         ###   ########.fr       */
+/*   Updated: 2023/07/04 11:11:07 by ljerinec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void	checking_argv(int argc, char **argv)
 			i++;
 		else
 		{
-			printf("Only numbers allowed for the parameters !\n");
+			printf("Only positive numbers allowed for the parameters !\n");
 			exit(1);
 		}
 	}
